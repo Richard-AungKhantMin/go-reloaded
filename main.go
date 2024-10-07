@@ -1,13 +1,15 @@
 package main
 
 import (
+	"fmt"
 	"os"
 )
 
 func main() {
-	file, err := os.ReadFile("sample.txt")
+	fileB, err := os.ReadFile("./sample.txt")
 	IsErrNil(err)
 
-	fileS := string(file)
-
+	ModifiedText := MyLab(string(fileB))
+	fmt.Println(ModifiedText)
+	os.WriteFile("./result.txt", []byte(ModifiedText), 0644)
 }
