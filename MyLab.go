@@ -1,16 +1,25 @@
 package main
 
 import (
-	"strconv"
+	"strings"
 )
 
-// StringToInt converts a string to an integer and handles any potential errors.
-func StringToInt(s string) (int, error) {
-	i, err := strconv.Atoi(s)
-	if err != nil {
-		return 0, err
+func MyLab(sentence string) string {
+
+	words := strings.Fields(sentence)
+
+	if len(words) > 0 {
+		words[0] = CapCap(words[0])
 	}
-	return i, nil
+
+	var QuoteCount int
+	for _, eachWord := range words {
+		switch eachWord {
+		case "a", "A":
+
+		}
+	}
+
 }
 
 /*
