@@ -5,9 +5,14 @@ import (
 )
 
 func main() {
-	fileB, err := os.ReadFile("./sample.txt")
+
+	if len(os.Args) != 3 {
+		return
+	}
+
+	fileB, err := os.ReadFile(os.Args[1])
 	IsErrNil(err)
 
 	ModifiedText := MyLab(string(fileB))
-	os.WriteFile("./result.txt", []byte(ModifiedText), 0644)
+	os.WriteFile(os.Args[2], []byte(ModifiedText), 0644)
 }
