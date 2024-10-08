@@ -69,22 +69,14 @@ func MyLab(sentence string) string {
 			} else {
 				words[i-1] = words[i+1] + "'"
 				words[i] = ""
+				QuoteCount++
 			}
-
-		default:
-			for i > 0 && len(words[i]) > 0 && strings.Contains(".,!?;:", string(words[i][0])) {
-				words[i-1] = words[i-1] + string(words[i][0])
-				words[i] = words[i][1:]
-			}
-
 		}
 	}
-	var edited []string
-	for _, each := range words {
-		if each != "" {
-			edited = append(edited, each)
-		}
-	}
+
+	edited := SliceSlayer(words)
+	edited = SliceSlayer(PunPun(edited))
+
 	return strings.Join(edited, " ")
 }
 
