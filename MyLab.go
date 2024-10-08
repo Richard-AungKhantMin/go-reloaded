@@ -47,16 +47,19 @@ func MyLab(sentence string) string {
 			num = NumExtractor(words[i+1])
 			NumMod(num, i, words, Lower)
 			words[i] = ""
+			words[i+1] = ""
 
-		case "(up":
+		case "(up,":
 			num = NumExtractor(words[i+1])
 			NumMod(num, i, words, Upper)
 			words[i] = ""
+			words[i+1] = ""
 
-		case "(cap":
+		case "(cap,":
 			num = NumExtractor(words[i+1])
 			NumMod(num, i, words, CapCap)
 			words[i] = ""
+			words[i+1] = ""
 
 		case "'":
 			if QuoteCount%2 == 1 {
@@ -69,15 +72,20 @@ func MyLab(sentence string) string {
 			}
 
 		default:
-			for strings.Contains(".,!?;:", string(words[i][0])) && i != 0 {
+			for i > 0 && len(words[i]) > 0 && strings.Contains(".,!?;:", string(words[i][0])) {
 				words[i-1] = words[i-1] + string(words[i][0])
 				words[i] = words[i][1:]
 			}
 
 		}
 	}
-
-	return strings.Join(words, " ")
+	var edited []string
+	for _, each := range words {
+		if each != "" {
+			edited = append(edited, each)
+		}
+	}
+	return strings.Join(edited, " ")
 }
 
 /*
