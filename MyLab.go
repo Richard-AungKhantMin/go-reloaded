@@ -15,63 +15,63 @@ func MyLab(sentence string) string {
 	var QuoteCount int
 	var num int
 
-	for i, eachWord := range words {
-		switch eachWord {
+	for i := 0; i < len(words); i++ {
+		switch words[i] {
 
 		case "a", "A":
-			if strings.Contains("aeiouhAEIOUH", string(words[i][0])) {
-				eachWord = eachWord + "n"
+			if strings.Contains("aeiouhAEIOUH", string(words[i+1][0])) {
+				words[i] = words[i] + "n"
 			}
 
 		case "(hex)":
 			words[i-1] = HexToDec(words[i-1])
-			eachWord = ""
+			words[i] = ""
 
 		case "(bin)":
 			words[i-1] = BinaryToDec(words[i-1])
-			eachWord = ""
+			words[i] = ""
 
 		case "(up)":
 			words[i-1] = Upper(words[i-1])
-			eachWord = ""
+			words[i] = ""
 
 		case "(low)":
 			words[i-1] = Lower(words[i-1])
-			eachWord = ""
+			words[i] = ""
 
 		case "(cap)":
 			words[i-1] = CapCap(words[i-1])
-			eachWord = ""
+			words[i] = ""
 
 		case "(low,":
 			num = NumExtractor(words[i+1])
 			NumMod(num, i, words, Lower)
-			eachWord = ""
+			words[i] = ""
 
 		case "(up":
 			num = NumExtractor(words[i+1])
 			NumMod(num, i, words, Upper)
-			eachWord = ""
+			words[i] = ""
 
 		case "(cap":
 			num = NumExtractor(words[i+1])
 			NumMod(num, i, words, CapCap)
-			eachWord = ""
+			words[i] = ""
 
 		case "'":
 			if QuoteCount%2 == 1 {
 				words[i+1] = "'" + words[i+1]
-				eachWord = ""
+				words[i] = ""
 				QuoteCount++
 			} else {
 				words[i-1] = words[i+1] + "'"
-				eachWord = ""
+				words[i] = ""
 			}
 
 		default:
-			for strings.Contains(".,!?;:", string(eachWord[0])) && i != 0 {
-				words[i-1] = words[i-1] + string(eachWord[0])
-				eachWord = eachWord[1:]
+			for strings.Contains(".,!?;:", string(words[i][0])) && i != 0 {
+				words[i-1] = words[i-1] + string(words[i][0])
+				words[i] = words[i][1:]
 			}
 
 		}
