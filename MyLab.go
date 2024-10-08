@@ -17,6 +17,23 @@ func MyLab(sentence string) string {
 		switch eachWord {
 		case "a", "A":
 
+		case "(hex)":s
+
+		case "(bin)":
+
+		case "(up)":
+
+		case "(low)":
+
+		case "(cap)":
+
+		case "(low,":
+
+		case "(up":
+
+		case "(cap":
+
+		case ""
 		}
 	}
 
