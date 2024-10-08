@@ -62,12 +62,12 @@ func MyLab(sentence string) string {
 			words[i+1] = ""
 
 		case "'":
-			if QuoteCount%2 == 1 {
+			if QuoteCount%2 == 0 {
 				words[i+1] = "'" + words[i+1]
 				words[i] = ""
 				QuoteCount++
 			} else {
-				words[i-1] = words[i+1] + "'"
+				words[i-1] = words[i-1] + "'"
 				words[i] = ""
 				QuoteCount++
 			}
