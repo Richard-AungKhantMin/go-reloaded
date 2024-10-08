@@ -14,6 +14,7 @@ func main() {
 	IsErrNil(err)
 
 	ModifiedText := MyLab(string(fileB))
+
 	os.WriteFile(os.Args[2], []byte(ModifiedText), 0644)
 
 }
