@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"os"
 )
 
@@ -10,6 +9,5 @@ func main() {
 	IsErrNil(err)
 
 	ModifiedText := MyLab(string(fileB))
-	fmt.Println(ModifiedText)
 	os.WriteFile("./result.txt", []byte(ModifiedText), 0644)
 }
