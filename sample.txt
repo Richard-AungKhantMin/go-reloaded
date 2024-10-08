@@ -1,1 +1,1 @@
-harold wilson (cap, 2) : ' I am a optimist ,but a optimist who carries a raincoat . '
+c Simply add 42 (hex) and 10 (bin) and you will see the result is 68,
