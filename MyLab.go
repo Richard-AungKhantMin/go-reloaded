@@ -12,7 +12,6 @@ func MyLab(sentence string) string {
 		words[0] = CapCap(words[0])
 	}
 
-	var QuoteCount int
 	var num int
 
 	for i := 0; i < len(words); i++ {
@@ -61,32 +60,12 @@ func MyLab(sentence string) string {
 			words[i] = ""
 			words[i+1] = ""
 
-		case "'":
-			if QuoteCount%2 == 0 {
-				words[i+1] = "'" + words[i+1]
-				words[i] = ""
-				QuoteCount++
-			} else {
-				words[i-1] = words[i-1] + "'"
-				words[i] = ""
-				QuoteCount++
-			}
 		}
 	}
 
 	edited := SliceSlayer(words)
-	edited = SliceSlayer(PunPun(edited))
+	edited = PunPun(edited)
+	edited = QuoteHandler(edited)
 
 	return strings.Join(edited, " ")
 }
-
-/*
-
-
-	switch s {
-		case ".", ",", "!", "?", ";", ":" :
-
-	}
-
-
-*/

@@ -10,5 +10,5 @@ func PunPun(words []string) []string {
 			words[i] = words[i][1:]
 		}
 	}
-	return words
+	return SliceSlayer(words)
 }
