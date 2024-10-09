@@ -63,9 +63,7 @@ func MyLab(sentence string) string {
 		}
 	}
 
-	edited := SliceSlayer(words)
-	edited = PunPun(edited)
-	edited = QuoteHandler(edited)
+	edited := QuoteHandler(PunPun(SliceSlayer(words)))
 
 	return strings.Join(edited, " ")
 }
