@@ -1,10 +1,9 @@
 package main
 
+import "strconv"
+
 func NumExtractor(s string) int {
-	for _, each := range s {
-		if each >= '0' && each <= '9' {
-			return int(each - '0')
-		}
-	}
-	return 0
+	Num, err := strconv.Atoi(string(s[:len(s)-1]))
+	IsErrNil(err)
+	return Num
 }
