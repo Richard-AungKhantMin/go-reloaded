@@ -22,7 +22,7 @@ func TestLabrat(t *testing.T) {
 		input: "Welcome to the Brooklyn bridge (cap)",
 		want:  "Welcome to the Brooklyn Bridge",
 	}, {
-		input: "his is so exciting (up, 2)",
+		input: "This is so exciting (up, 2)",
 		want:  "This is SO EXCITING",
 	}, {
 		input: "I was sitting over there ,and then BAMM !!",
